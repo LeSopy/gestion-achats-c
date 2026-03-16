@@ -30,6 +30,7 @@ int main()
     employes.push_back(Employe("005", "Caroline"));
     employes.push_back(Employe("001", "Andrew"));
 
+    // nous devons travailler avec un catalogue non modifiable
     const vector<Employe> catalogueEmployes = employes;
 
     vector<Article> catalogue;
@@ -47,7 +48,7 @@ int main()
 
     string nomEmploye = login(catalogueEmployes);
 
-    auto it = find_if(employes.begin(), employes.end(),
+    auto it = find_if(catalogueEmployes.begin(), catalogueEmployes.end(),
         [&nomEmploye] (const Employe& e) {
             return (e.getNom() == nomEmploye);
     });
